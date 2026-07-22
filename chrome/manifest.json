@@ -3,7 +3,6 @@
   "name": "standard.site subscribe",
   "version": "0.1.0",
   "description": "One-click subscribe to the standard.site publication you're reading.",
-  "permissions": ["storage"],
   "host_permissions": ["https://api.vey.dev/*"],
   "background": { "service_worker": "background.js" },
   "content_scripts": [{ "matches": ["<all_urls>"], "js": ["content.js"], "run_at": "document_idle" }],
