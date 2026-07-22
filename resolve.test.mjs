@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
-import { didFromLinkHref, resolvePublicationDid } from "./chrome/resolve.js";
+import "./chrome/resolve.js"; // side effect: sets globalThis.SubscribeResolve
+const { didFromLinkHref, resolvePublicationDid } = globalThis.SubscribeResolve;
 
 describe("didFromLinkHref", () => {
   it("extracts the DID from a publication AT-URI", () => {

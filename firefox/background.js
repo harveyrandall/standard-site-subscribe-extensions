@@ -16,7 +16,7 @@ api.tabs.onRemoved.addListener((tabId) => tabLinks.delete(tabId));
 api.action.onClicked.addListener(async (tab) => {
   const links = tabLinks.get(tab.id);
   if (!links) { api.action.setBadgeText({ tabId: tab.id, text: "?" }); return; } // nothing on this page
-  const did = await resolvePublicationDid(links, (u) => fetch(u));
+  const did = await SubscribeResolve.resolvePublicationDid(links, (u) => fetch(u));
   if (!did) { api.action.setBadgeText({ tabId: tab.id, text: "!" }); return; } // couldn't resolve
   api.tabs.create({ url: `https://con.vey.dev/p/${encodeURIComponent(did)}?subscribe` });
 });
