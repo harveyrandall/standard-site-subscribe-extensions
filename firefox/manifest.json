@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "standard.site subscribe",
+  "version": "0.1.0",
+  "description": "One-click subscribe to the standard.site publication you're reading.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.vey.dev/*"],
+  "background": { "scripts": ["resolve.js", "background.js"] },
+  "content_scripts": [{ "matches": ["<all_urls>"], "js": ["content.js"], "run_at": "document_idle" }],
+  "action": { "default_title": "Subscribe on standard.site", "default_icon": { "16": "icons/icon-16.png", "32": "icons/icon-32.png" } },
+  "icons": { "16": "icons/icon-16.png", "32": "icons/icon-32.png", "48": "icons/icon-48.png", "128": "icons/icon-128.png" },
+  "browser_specific_settings": { "gecko": { "id": "standard-site-subscribe@harveyrandall.io", "strict_min_version": "121.0" } }
+}
